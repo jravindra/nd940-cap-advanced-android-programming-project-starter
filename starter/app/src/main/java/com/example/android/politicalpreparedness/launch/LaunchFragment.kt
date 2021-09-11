@@ -13,9 +13,11 @@ import com.example.android.politicalpreparedness.election.adapter.ElectionListen
 
 class LaunchFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding = FragmentLaunchBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
