@@ -3,6 +3,8 @@
     <dimen name="default_padding">8dp</dimen>
     <dimen name="margin_24dp">24dp</dimen>
     <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="loading_indicator_dimens">200dp</dimen>
 
     <!-- TODO: Add necessary dimension values -->s
 

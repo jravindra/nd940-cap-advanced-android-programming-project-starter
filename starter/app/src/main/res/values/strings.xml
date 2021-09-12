@@ -4,6 +4,8 @@
     <string name="home_screen_logo_text">home screen logo</string>
     <string name="upcoming_elections_text">Upcoming Elections</string>
     <string name="find_my_representatives">Find My Representatives</string>
+    <string name="fetch_error">Problem fetching network data</string>
+    <string name="connection_error">Network not available</string>
 
     <!-- TODO: Add necessary string values -->
 
