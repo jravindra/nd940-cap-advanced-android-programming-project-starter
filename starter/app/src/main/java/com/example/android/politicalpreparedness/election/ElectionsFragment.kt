@@ -57,23 +57,10 @@ class ElectionsFragment : Fragment() {
                         election.division
                     )
                 )
+                electionsViewModel.navigateToVoterInfoComplete()
             }
         }
 
-
-        //TODO: Add ViewModel values and create ViewModel
-
-        //TODO: Add binding values
-
-        //TODO: Link elections to voter info
-
-        //TODO: Initiate recycler adapters
-
-        //TODO: Populate recycler adapters
-
         return binding.root
     }
-
-    //TODO: Refresh adapters when fragment loads
-
 }

@@ -6,6 +6,14 @@
     <string name="find_my_representatives">Find My Representatives</string>
     <string name="fetch_error">Problem fetching network data</string>
     <string name="connection_error">Network not available</string>
+    <string name="follow_election">Follow Election</string>
+    <string name="unfollow_election">Unfollow Election</string>
+    <string name="network_error">Something went wrong. Please check your internet connection.</string>
+    <string name="loading_data">Loading data</string>
+    <string name="voter_information_text">Election Information</string>
+    <string name="voting_locations">Voting locations</string>
+    <string name="ballot_information">Ballot information</string>
+
 
     <!-- TODO: Add necessary string values -->
 
