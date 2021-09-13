@@ -19,6 +19,7 @@ class ElectionsFragment : Fragment() {
     //Declare ViewModel
     private lateinit var electionsViewModel: ElectionsViewModel
     private lateinit var upcomingElectionsListAdapter: ElectionListAdapter
+    private lateinit var savedElectionsListAdapter: ElectionListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,14 +39,32 @@ class ElectionsFragment : Fragment() {
 
         upcomingElectionsListAdapter = ElectionListAdapter(ElectionListAdapter.ElectionListener { election ->
             electionsViewModel.onElectionClicked(election)
-        })
+        }, "Upcoming Elections")
 
+        savedElectionsListAdapter = ElectionListAdapter(ElectionListAdapter.ElectionListener { election ->
+            electionsViewModel.onElectionClicked(election)
+        }, "Saved Elections")
+
+
+        binding.savedElectionsRecycler.adapter = savedElectionsListAdapter
         binding.upcomingElectionsRecycler.adapter = upcomingElectionsListAdapter
 
         // observers
         electionsViewModel.upcommingElections.observe(viewLifecycleOwner, Observer {
-            it?.let {
+            it?.apply {
                 upcomingElectionsListAdapter.addHeaderAndSubmitList(it)
+            }
+        })
+
+        // observers
+        electionsViewModel.savedElections.observe(viewLifecycleOwner, Observer { savedElections ->
+            savedElections?.apply {
+                savedElectionsListAdapter.addHeaderAndSubmitList(savedElections)
+                if (savedElections.isNotEmpty()) {
+                    binding.noDataHint.visibility = View.GONE
+                } else {
+                    binding.noDataHint.visibility = View.VISIBLE
+                }
             }
         })
 
@@ -60,6 +79,8 @@ class ElectionsFragment : Fragment() {
                 electionsViewModel.navigateToVoterInfoComplete()
             }
         }
+
+
 
         return binding.root
     }

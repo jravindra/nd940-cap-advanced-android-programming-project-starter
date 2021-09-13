@@ -13,6 +13,8 @@
     <string name="voter_information_text">Election Information</string>
     <string name="voting_locations">Voting locations</string>
     <string name="ballot_information">Ballot information</string>
+    <string name="no_saved_item_yet">No saved items yet</string>
+    <string name="saved_elections">Saved Elections</string>
 
 
     <!-- TODO: Add necessary string values -->

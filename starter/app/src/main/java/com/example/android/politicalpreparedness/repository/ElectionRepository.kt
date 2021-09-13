@@ -1,5 +1,6 @@
 package com.example.android.politicalpreparedness.repository
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.android.politicalpreparedness.database.ElectionDatabase
 import com.example.android.politicalpreparedness.network.CivicsApi
@@ -10,17 +11,14 @@ import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class ElectionRepository(private val database: ElectionDatabase) {
+    val savedElections: LiveData<List<Election>> = database.electionDao.getElections()
     val upcomingElections = MutableLiveData<List<Election>>()
     val state = MutableLiveData<State>()
 
     suspend fun fetchUpcomingElections() {
         withContext(Dispatchers.IO) {
-            try {
-                val electionResponse = CivicsApi.retrofitService.getElections()
-                upcomingElections.postValue(electionResponse.elections)
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
+            val electionResponse = CivicsApi.retrofitService.getElections()
+            upcomingElections.postValue(electionResponse.elections)
         }
     }
 

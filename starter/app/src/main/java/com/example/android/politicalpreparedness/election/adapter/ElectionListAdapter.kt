@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.ElectionItemBinding
 import com.example.android.politicalpreparedness.network.models.Election
+import kotlinx.android.synthetic.main.header.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.ClassCastException
 
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
 
-class ElectionListAdapter(private val clickListener: ElectionListener) :
+class ElectionListAdapter(private val clickListener: ElectionListener, private val title: String) :
     ListAdapter<ElectionListAdapter.DataItem, RecyclerView.ViewHolder>(ElectionDiffCallback()) {
 
     private val adapterScope = CoroutineScope(Dispatchers.Default)
@@ -44,11 +44,17 @@ class ElectionListAdapter(private val clickListener: ElectionListener) :
     }
 
     //Bind ViewHolder
-    override fun onBindViewHolder(electionViewHolder: RecyclerView.ViewHolder, position: Int) {
-        when (electionViewHolder) {
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+        when (viewHolder) {
             is ViewHolder -> {
                 val electionItem = getItem(position) as DataItem.ElectionItem
-                electionViewHolder.bind(electionItem.election, clickListener)
+                viewHolder.bind(electionItem.election, clickListener)
+            }
+        }
+
+        when (viewHolder) {
+            is TextViewHolder -> {
+                viewHolder.itemView.text.text = title
             }
         }
     }

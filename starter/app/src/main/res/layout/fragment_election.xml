@@ -12,8 +12,14 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/default_padding"
             tools:context="com.example.android.politicalpreparedness.MainActivity">
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4">
 
             <ImageView
                     android:id="@+id/loading_upcoming_elections_image"
@@ -25,6 +31,7 @@
                     android:contentDescription="@string/connection_error"
                     tools:layout_editor_absoluteY="208dp"
                     tools:layout_editor_absoluteX="81dp"/>
+
             <ImageView
                     android:id="@+id/connection_error_image"
                     viewVisibility="@{electionViewModel.isNetworkFetchError}"
@@ -35,17 +42,43 @@
                     android:contentDescription="@string/fetch_error"
                     android:src="@drawable/loading_img"/>
 
-            <!-- TODO: Add Upcoming Election Recycler and Header -->
-
-            <!-- TODO: Add Saved Election Recycler and Header -->
-
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/upcoming_elections_recycler"
                     android:layout_width="fill_parent"
                     android:paddingLeft="@dimen/padding_4dp"
+                    tools:itemCount="10"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:layout_height="fill_parent" tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"/>
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/election_item"/>
+
+        </RelativeLayout>
+
+<!--        <TextView-->
+<!--                style="@style/section_title_style"-->
+<!--                android:layout_marginTop="@dimen/default_padding"-->
+<!--                android:text="@string/saved_elections"/>-->
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4">
+
+            <TextView
+                    android:id="@+id/no_data_hint"
+                    style="@style/no_data_hint_style"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:text="@string/no_saved_item_yet"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/saved_elections_recycler"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="@dimen/default_padding"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="10"
+                    tools:listitem="@layout/election_item"
+                    tools:layout_editor_absoluteY="50dp"/>
         </RelativeLayout>
     </LinearLayout>
 

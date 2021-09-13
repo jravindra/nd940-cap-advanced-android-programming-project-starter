@@ -11,10 +11,10 @@ import com.example.android.politicalpreparedness.utils.isNetworkReachable
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-//TODO: Construct ViewModel and provide election datasource
 class ElectionsViewModel(private val repository: ElectionRepository, application: Application) :
     AndroidViewModel(application) {
     val upcommingElections = repository.upcomingElections
+    val savedElections = repository.savedElections
 
     // List of variables to check network progress and navigation
     private val _isNetworkAvailable = MutableLiveData<Boolean>(false)
