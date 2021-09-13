@@ -29,7 +29,7 @@ class LaunchFragment : Fragment() {
     }
 
     private fun navToRepresentatives() {
-//        this.findNavController().navigate(LaunchFragmentDirections.actionLaunchFragmentToRepresentativeFragment())
+        this.findNavController().navigate(LaunchFragmentDirections.actionLaunchFragmentToRepresentativeFragment())
     }
 
 }

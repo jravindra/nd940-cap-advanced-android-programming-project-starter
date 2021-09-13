@@ -15,8 +15,23 @@
     <string name="ballot_information">Ballot information</string>
     <string name="no_saved_item_yet">No saved items yet</string>
     <string name="saved_elections">Saved Elections</string>
-
-
-    <!-- TODO: Add necessary string values -->
+    <string name="representative_search">Representative Search</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="address_line_2">Address Line 2</string>
+    <string name="city">City</string>
+    <string name="zip_code">ZIP Code</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="web">Web</string>
+    <string name="permission_denied_explanation">You need to grant location permission in order to use your location.
+    </string>
+    <string name="unknown_address">Unknown address</string>
+    <string name="settings">Settings</string>
+    <string name="location_required_error">Location services must be enabled to use this feature.</string>
+    <string name="use_my_location">Use my location</string>
+    <string name="my_representatives">My representatives</string>
+    <string name="search_for_your_representatives">Search for your representatives</string>
+    <string name="nothing_here_yet">Nothing here yet</string>
 
 </resources>

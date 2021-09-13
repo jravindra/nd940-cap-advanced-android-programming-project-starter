@@ -7,32 +7,33 @@
     app:startDestination="@id/launchFragment">
 
     <fragment
-        android:id="@+id/launchFragment"
-        android:name="com.example.android.politicalpreparedness.launch.LaunchFragment"
-        android:label="@string/app_name"
-        tools:layout="@layout/fragment_launch">
-<!--        <action android:id="@+id/action_launchFragment_to_representativeFragment"-->
-<!--                app:destination="@id/representativeFragment"/>-->
+            android:id="@+id/launchFragment"
+            android:name="com.example.android.politicalpreparedness.launch.LaunchFragment"
+            android:label="@string/app_name"
+            tools:layout="@layout/fragment_launch">
+        <!--        <action android:id="@+id/action_launchFragment_to_representativeFragment"-->
+        <!--                app:destination="@id/representativeFragment"/>-->
         <action android:id="@+id/action_launchFragment_to_electionsFragment" app:destination="@id/electionsFragment"/>
+        <action android:id="@+id/action_launchFragment_to_representativeFragment"
+                app:destination="@id/representativeFragment"/>
     </fragment>
 
-<!--    <fragment-->
-<!--        android:id="@+id/representativeFragment"-->
-<!--        android:name="com.example.android.politicalpreparedness.representative.DetailFragment"-->
-<!--        android:label="fragment_representative"-->
-<!--        tools:layout="@layout/fragment_representative"></fragment>-->
-<!--    android:label="fragment_voter_info">-->
     <fragment
-        android:id="@+id/voterInfoFragment"
-        android:name="com.example.android.politicalpreparedness.election.VoterInfoFragment"
-        android:label="fragment_voter_info"
-        tools:layout="@layout/fragment_voter_info">
+            android:id="@+id/representativeFragment"
+            android:name="com.example.android.politicalpreparedness.representative.DetailFragment"
+            android:label="Find My Representatives"
+            tools:layout="@layout/fragment_representative"/>
+    <fragment
+            android:id="@+id/voterInfoFragment"
+            android:name="com.example.android.politicalpreparedness.election.VoterInfoFragment"
+            android:label="fragment_voter_info"
+            tools:layout="@layout/fragment_voter_info">
         <argument
-            android:name="arg_election"
-            app:argType="com.example.android.politicalpreparedness.network.models.Election" />
+                android:name="arg_election"
+                app:argType="com.example.android.politicalpreparedness.network.models.Election"/>
         <argument
-            android:name="arg_division"
-            app:argType="com.example.android.politicalpreparedness.network.models.Division" />
+                android:name="arg_division"
+                app:argType="com.example.android.politicalpreparedness.network.models.Division"/>
         <action android:id="@+id/action_voterInfoFragment_to_electionsFragment"
                 app:destination="@id/electionsFragment" app:popUpTo="@id/electionsFragment"
                 app:popUpToInclusive="true"/>
